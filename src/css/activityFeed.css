@@ -1,71 +1,132 @@
-/* Base Styling */
-body {
+.container-view {
   font-family: Arial, sans-serif;
+  padding: 1.5rem;
+  height: 500px; /* Make it fill the container */
+  overflow: hidden; /* Prevent content from overflowing */
+  display: flex;
+  flex-direction: column; /* Align children vertically */
 }
-
-#app .container-view {
-  padding: 20px;
-  overflow-y: auto; /* Enable scrolling */
-  height: 100%;
+.tab-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.tab-button {
+  padding: 0.75rem 2.5rem;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 0.5rem;
+}
+.tab-button.active {
+  background-color: #2AC420;
+  color: white;
+}
+.tab-content {
+  flex: 1; /* Allow tab content to take remaining space */
+  overflow-y: auto; /* Enable scrolling for content overflow */
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
   box-sizing: border-box;
 }
-
-/* Date Header */
-.date-line {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 14px;
-  color: #555;
-  margin: 10px 0;
-}
-
-.date-line::before,
-.date-line::after {
-  content: "";
-  flex: 1;
-  border-top: 1px dotted #ccc;
-  margin: 0 10px;
-}
-
-/* Call Container */
-.call-item {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 10px;
+.tab-content button{
+  margin-right: 1rem;
+  padding: 0.5rem 2rem;
+  border: none;
   background-color: #f9f9f9;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+.container-view h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+  font-weight: bold;
+
+}
+.call-item {
+  border: 1px solid #ddd;
+  padding: 7px;
+  background-color: #D7EEE9;
+  border-radius: 3rem;
+  margin-bottom: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: first baseline;
+  transition: background-color 0.3s ease;
+  transform: scale(1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-/* Header: Phone Icon and Caller Info */
-.call-header {
+.call-item .caller{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 1rem;
+  font-weight: 600;
+
 }
 
-.phone-icon {
+.call-item:hover {
+  background-color: #e9f5f7;
+}
+.call-item img{
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
   margin-right: 10px;
-  font-size: 16px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
-.phone-icon {
-  color: green; /* Default for answered/voicemail */
+.call-item img:hover {
+  transform: scale(1.1);
+}
+.call-item .call-details{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 1rem;
 }
 
-.phone-icon.missed {
-  color: red; /* Red for missed calls */
+
+.call-item.archived {
+  background-color: #f8f9fa;
+  color: #6c757d;
+}
+.date-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-.caller-info {
-  font-size: 14px;
-  color: #333;
-  flex: 1;
+.date-group h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #555;
+  opacity: 0.7;
+  text-align: center;
+}
+.archive-button,
+.unarchive-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  border: 1px solid green;
+  border-radius: 5px;
+  color: green;
+  font-size: 1rem;
+  cursor: pointer;
+
 }
 
-/* App Name (via) */
-.via-info {
-  margin-top: 5px;
-  font-size: 12px;
-  color: #888;
+.archive-button:hover,
+.unarchive-button:hover {
+  background-color: #e9f5f7;
+
 }
