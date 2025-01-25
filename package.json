@@ -1,7 +1,6 @@
 {
   "name": "frontend-hiring-challenge",
   "version": "1.0.0",
-  "proxy": "http://localhost:8081",
   "description": "Leap test",
   "main": "index.js",
   "repository": "",
@@ -14,7 +13,7 @@
       "test": "react-scripts test",
       "eject": "react-scripts eject"
     },
-    
+
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
     "react": "^16.3.1",
